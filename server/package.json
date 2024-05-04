@@ -1,0 +1,11 @@
+{
+  "name": "saudade",
+  "version": "1.0.0",
+  "description": "a tool for helping youtubers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rishabhguptajs",
+  "license": "ISC"
+}
