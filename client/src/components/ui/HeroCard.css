@@ -1,0 +1,37 @@
+.hero-3d-card {
+  width: 80%;
+  height: 150%;
+  background-color: rgba(63, 63, 63, 0.81);
+  border-radius: 20px;
+  cursor: cell;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.h1_tilt {
+  font-size: 2em;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #333333;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  text-align: center;
+  margin: 1.5em 0px;
+  padding: 0.5em 1em;
+  transform: translateZ(100px);
+}
+
+.h1_tilt-delayed{
+    text-decoration: line-through;
+}
+
+.h1_tilt-done{
+    text-decoration: none;
+}
+
+.hero-3d-card:hover .h1_tilt{
+    transition-duration: 0.2s;
+    box-shadow: 0px 8px 10px rgba(118, 118, 118, 0.381);  
+}

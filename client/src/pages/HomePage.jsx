@@ -1,6 +1,7 @@
 import React from "react"
 import "./styles/HomePage.css"
 import Layout from "../components/Layout/Layout"
+import Hero3DCard from "../components/ui/Hero3DCard"
 
 const HomePage = () => {
   return (
@@ -13,12 +14,18 @@ const HomePage = () => {
             <span className="gradient_main_tagline">uploa...ding!</span>
           </div>
           <div className="sub_tagline">
-            Uploading files has never been easier! Just drag and drop your files and we'll take care of the rest.
+            Traveling? Working? Studying? We got you covered! <br />{" "}
           </div>
         </div>
         <div className="hero_buttons_container">
           <button className="hero_button_get">Get Started</button>
           <button className="hero_button_learn">Learn More</button>
+        </div>
+        <div className="hero_3d_cards_container">
+          <Hero3DCard
+            title="Traveling"
+            description="Traveling? Working? Studying? We got you covered!"
+          />
         </div>
       </div>
     </Layout>
