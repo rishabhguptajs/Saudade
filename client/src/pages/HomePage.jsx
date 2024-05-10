@@ -14,7 +14,7 @@ const HomePage = () => {
             <span className="gradient_main_tagline">uploa...ding!</span>
           </div>
           <div className="sub_tagline">
-            Traveling? Working? Studying? We got you covered! <br />{" "}
+            Traveling? Working? Studying? We got you covered.
           </div>
         </div>
         <div className="hero_buttons_container">
@@ -22,10 +22,7 @@ const HomePage = () => {
           <button className="hero_button_learn">Learn More</button>
         </div>
         <div className="hero_3d_cards_container">
-          <Hero3DCard
-            title="Traveling"
-            description="Traveling? Working? Studying? We got you covered!"
-          />
+          <Hero3DCard />
         </div>
       </div>
     </Layout>
