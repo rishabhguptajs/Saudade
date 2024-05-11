@@ -1,9 +1,14 @@
 import React from "react"
-import "./styles/HomePage.css"
-import Layout from "../components/Layout/Layout"
-import Hero3DCard from "../components/ui/Hero3DCard"
+import "../styles/HomePage.css"
+import Layout from "../../components/Layout/Layout"
+import Hero3DCard from "../../components/ui/Hero3DCard"
 
-const HomePage = () => {
+const HomePage = ({ user }) => {
+
+   const logout = () => {
+    window.open(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/logout`, "_self")
+   }
+
   return (
     <Layout>
       <div className="homepage">
