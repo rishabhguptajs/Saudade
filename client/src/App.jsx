@@ -13,6 +13,9 @@ function App() {
     try {
       const url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/login/success`
       const res = await axios.get(url, { withCredentials: true })
+      // store user in local storage
+      localStorage.setItem("user", JSON.stringify(res.data.user._json))
+      
       console.log(res.data.user._json)
       setUser(res.data.user._json)
     } catch (error) {
@@ -27,8 +30,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={user ? <HomePage user={user} /> : <Login />} />
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

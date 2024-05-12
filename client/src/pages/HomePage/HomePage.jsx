@@ -3,11 +3,7 @@ import "../styles/HomePage.css"
 import Layout from "../../components/Layout/Layout"
 import Hero3DCard from "../../components/ui/Hero3DCard"
 
-const HomePage = ({ user }) => {
-
-   const logout = () => {
-    window.open(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/logout`, "_self")
-   }
+const HomePage = () => {
 
   return (
     <Layout>

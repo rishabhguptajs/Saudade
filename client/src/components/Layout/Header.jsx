@@ -4,6 +4,12 @@ import { NavLink } from "react-router-dom"
 import logo from "/saudade.svg"
 
 const Header = () => {
+  const logout = () => {
+    window.open(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/logout`, "_self")
+   }
+
+   const user = JSON.parse(localStorage.getItem("user"))
+
   return (
     <nav className="navbar">
       <h1>
@@ -33,9 +39,18 @@ const Header = () => {
           </NavLink>
         </li>
       </ul>
-      <NavLink to="/login">
+     {/* {user ? (
+       <div className="user_container">
+          <div className="user_name">{user.name}</div>
+          <button className="logout_btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      ) : ( */}
+        <NavLink to="/login">
         <button className="login_btn">Login</button>
       </NavLink>
+      {/* )} */}
     </nav>
   )
 }
