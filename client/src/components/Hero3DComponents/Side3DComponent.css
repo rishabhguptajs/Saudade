@@ -1,0 +1,22 @@
+.side-3d-list-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: fit-content;
+    overflow: hidden;
+    background-color: rgb(255, 241, 240);
+}
+
+.side-3d-list-main li{
+    list-style-type: none;
+    /* padding: 1em;
+    background-color: rgba(225, 225, 225, 0.81);
+    border-radius: 10px;
+    width: 80%;
+    height: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center; */
+}

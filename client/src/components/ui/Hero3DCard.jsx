@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import vanillaTilt from "vanilla-tilt"
 import "./HeroCard.css"
+import Side3DComponent from "../Hero3DComponents/Side3DComponent"
 
 const Hero3DCard = () => {
   const tiltRef = useRef()
@@ -22,13 +23,12 @@ const Hero3DCard = () => {
       ref={tiltRef}
       className="hero-3d-card data-tilt data-tilt-full-page-listening"
     >
+        <Side3DComponent />
       <h1 className="h1_tilt">
         <span className="h1_tilt-delayed">Delayed?</span>
         <span className="h1_tilt-done">&nbsp; Done :)</span>
       </h1>
-      <div className="container">
-        
-      </div>
+      <div className="right-side-3d-component">system</div>
     </div>
   )
 }
