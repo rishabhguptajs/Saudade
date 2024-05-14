@@ -8,8 +8,6 @@ const Header = () => {
     window.open(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/logout`, "_self")
    }
 
-   const user = JSON.parse(localStorage.getItem("user"))
-
   return (
     <nav className="navbar">
       <h1>
