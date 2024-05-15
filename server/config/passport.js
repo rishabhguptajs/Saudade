@@ -1,7 +1,8 @@
 import { Strategy } from "passport-google-oauth20"
 import passport from "passport"
+import User from "../models/userModel.js";
 
-const GoogleStrategy = Strategy
+const GoogleStrategy = Strategy;
 
 passport.use(
   new GoogleStrategy(
@@ -12,7 +13,32 @@ passport.use(
       scope: ["email", "profile"],
     },
     function (accessToken, refreshToken, profile, callback) {
-      callback(null, profile)
+      // check if user already exists in our db with the given profile ID
+      try {
+        console.log(profile)
+        let user = User.findOne({ email: profile.emails[0].value });
+
+        if(user){
+          callback(null, user);
+        } else {
+          user = new User({
+            name: profile.displayName,
+            email: profile.emails[0].value,
+            channelName: "",
+            channelURL: "",
+            description: "",
+            socialLinks: [],
+            uploadedVideoLinks: [],
+            isVerified: false,
+          })
+
+          user.save();
+          callback(null, user);
+        }
+      } catch (error) {
+        console.log(error);
+        callback(error, null);
+      }
     }
   )
 );

@@ -11,13 +11,14 @@ function App() {
 
   const fetchUser = async () => {
     try {
-      const url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/login/success`
+      const url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/google/login/success`
       const res = await axios.get(url, { withCredentials: true })
       // store user in local storage
-      localStorage.setItem("user", JSON.stringify(res.data.user._json))
+      localStorage.setItem("user", JSON.stringify(res.data.user))
       
-      console.log(res.data.user._json)
-      setUser(res.data.user._json)
+      // console.log(res.data.user)
+      setUser(res.data.user)
+
     } catch (error) {
       console.log(error)
     }

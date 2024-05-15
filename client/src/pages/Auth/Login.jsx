@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 
-    const googleAuth = () => {
-        alert(import.meta.env.VITE_REACT_APP_API_URL)
+    const googleAuth = async() => {
         window.open(
             `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/google/callback`, 
             "_self"
-        );
+        );   
     }
 
     

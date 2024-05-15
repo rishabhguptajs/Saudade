@@ -1,6 +1,7 @@
 import User from "../models/userModel.js"
 
 export const googleLoginAuth = async (req, res) => {
+
   try {
     if (req.user) {
       const user = await User.findOne({ email: req.user.emails[0].value })
@@ -18,18 +19,20 @@ export const googleLoginAuth = async (req, res) => {
         })
 
         user.save()
-      } else {
-        localStorage.setItem("user", JSON.stringify(req.user))
-
-        res.status(200).json({
-          success: true,
-          message: "User has successfully authenticated",
-          user: {
-            name: req.user.displayName,
-            email: req.user.emails[0].value,
-          },
-        })
       }
+
+      req.session.user = user
+
+      res.status(200).json({
+        success: true,
+        message: "User has successfully authenticated",
+        user: {
+          name: req.user.displayName,
+          email: req.user.emails[0].value,
+          userId: user._id
+        },
+      })
+
     } else {
       res.status(401).json({
         success: false,
@@ -43,3 +46,4 @@ export const googleLoginAuth = async (req, res) => {
     })
   }
 }
+

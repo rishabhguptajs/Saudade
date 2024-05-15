@@ -8,13 +8,13 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     successRedirect: "http://localhost:5173",
-    failureRedirect: "/login/failed",
+    failureRedirect: "/google/login/failed",
   })
 )
 
-router.get("/login/success", googleLoginAuth)
+router.get("/google/login/success", googleLoginAuth)
 
-router.get("/login/failed", (req, res) => {
+router.get("/google/login/failed", (req, res) => {
   res.status(401).json({
     success: false,
     message: "Failed to login!",
@@ -24,7 +24,7 @@ router.get("/login/failed", (req, res) => {
 router.get("/google", passport.authenticate("google", ["email", "profile"]))
 
 router.get("/logout", (req, res) => {
-  req.logout()
+  req.session.destroy()
   res.redirect(process.env.CLIENT_URL)
 })
 
