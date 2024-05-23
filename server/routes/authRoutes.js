@@ -1,6 +1,7 @@
 import express from "express"
 import passport from "passport"
 import { googleLoginAuth } from "../controllers/googleAuthController.js"
+import { emailSignup } from "../controllers/authController.js"
 
 const router = express.Router()
 
@@ -27,5 +28,7 @@ router.get("/logout", (req, res) => {
   req.session.destroy()
   res.redirect(process.env.CLIENT_URL)
 })
+
+router.post('/signup', emailSignup);
 
 export default router

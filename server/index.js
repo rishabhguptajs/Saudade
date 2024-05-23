@@ -6,6 +6,7 @@ import passportSetup from './config/passport.js'
 import cookieSession from 'cookie-session'
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
+import youtubeRoutes from './routes/youtubeRoutes.js'
 
 const app = express()
 
@@ -28,6 +29,7 @@ app.use(cors({
 }))
 
 app.use('/api/auth', authRoutes);
+app.use('/api/youtube', youtubeRoutes)
 
 app.get('/', (req, res) => {   
     res.send('Running Saudade!')

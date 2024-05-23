@@ -12,11 +12,10 @@ passport.use(
       callbackURL: "/api/auth/google/callback",
       scope: ["email", "profile"],
     },
-    function (accessToken, refreshToken, profile, callback) {
+    async function (accessToken, refreshToken, profile, callback) {
       // check if user already exists in our db with the given profile ID
       try {
-        console.log(profile)
-        let user = User.findOne({ email: profile.emails[0].value });
+        let user = await User.findOne({ email: profile.emails[0].value });
 
         if(user){
           callback(null, user);
@@ -30,9 +29,10 @@ passport.use(
             socialLinks: [],
             uploadedVideoLinks: [],
             isVerified: false,
+            googleAccessToken: accessToken,
           })
 
-          user.save();
+          await user.save();
           callback(null, user);
         }
       } catch (error) {

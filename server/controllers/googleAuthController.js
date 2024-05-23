@@ -47,3 +47,7 @@ export const googleLoginAuth = async (req, res) => {
   }
 }
 
+export const logout = (req, res) => {
+  req.session.destroy()
+  res.redirect(process.env.CLIENT_URL)
+}
