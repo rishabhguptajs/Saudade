@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="footer_content">
           <h2>Community</h2>
-          <ul>
+          <ul>z
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,10 +43,10 @@ const Footer = () => {
                   gradientUnits="userSpaceOnUse"
                   spreadMethod="reflect"
                 >
-                  <stop offset="0" stop-color="#c5f1ff"></stop>
-                  <stop offset=".35" stop-color="#cdf3ff"></stop>
-                  <stop offset=".907" stop-color="#e4faff"></stop>
-                  <stop offset="1" stop-color="#e9fbff"></stop>
+                  <stop offset="0" stopColor="#c5f1ff"></stop>
+                  <stop offset=".35" stopColor="#cdf3ff"></stop>
+                  <stop offset=".907" stopColor="#e4faff"></stop>
+                  <stop offset="1" stopColor="#e9fbff"></stop>
                 </radialGradient>
                 <path
                   fill="url(#xW1rhakWxHfCsuNDi~7SWa_119014_gr1)"
@@ -61,11 +61,11 @@ const Footer = () => {
                   gradientUnits="userSpaceOnUse"
                   spreadMethod="reflect"
                 >
-                  <stop offset="0" stop-color="#155cde"></stop>
-                  <stop offset=".278" stop-color="#1f7fe5"></stop>
-                  <stop offset=".569" stop-color="#279ceb"></stop>
-                  <stop offset=".82" stop-color="#2cafef"></stop>
-                  <stop offset="1" stop-color="#2eb5f0"></stop>
+                  <stop offset="0" stopColor="#155cde"></stop>
+                  <stop offset=".278" stopColor="#1f7fe5"></stop>
+                  <stop offset=".569" stopColor="#279ceb"></stop>
+                  <stop offset=".82" stopColor="#2cafef"></stop>
+                  <stop offset="1" stopColor="#2eb5f0"></stop>
                 </linearGradient>
                 <path
                   fill="url(#xW1rhakWxHfCsuNDi~7SWb_119014_gr2)"
@@ -91,10 +91,10 @@ const Footer = () => {
                   gradientTransform="matrix(1 0 0 -1 0 66)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stop-color="#f4e9c3"></stop>
-                  <stop offset=".219" stop-color="#f8eecd"></stop>
-                  <stop offset=".644" stop-color="#fdf4dc"></stop>
-                  <stop offset="1" stop-color="#fff6e1"></stop>
+                  <stop offset="0" stopColor="#f4e9c3"></stop>
+                  <stop offset=".219" stopColor="#f8eecd"></stop>
+                  <stop offset=".644" stopColor="#fdf4dc"></stop>
+                  <stop offset="1" stopColor="#fff6e1"></stop>
                 </radialGradient>
                 <path
                   fill="url(#nT5WH7nXAOiS46rXmee3Oa_msQ6HdxpqUmi_gr1)"
@@ -109,11 +109,11 @@ const Footer = () => {
                   gradientTransform="matrix(1 0 0 -1 0 66)"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stop-color="#155cde"></stop>
-                  <stop offset=".278" stop-color="#1f7fe5"></stop>
-                  <stop offset=".569" stop-color="#279ceb"></stop>
-                  <stop offset=".82" stop-color="#2cafef"></stop>
-                  <stop offset="1" stop-color="#2eb5f0"></stop>
+                  <stop offset="0" stopColor="#155cde"></stop>
+                  <stop offset=".278" stopColor="#1f7fe5"></stop>
+                  <stop offset=".569" stopColor="#279ceb"></stop>
+                  <stop offset=".82" stopColor="#2cafef"></stop>
+                  <stop offset="1" stopColor="#2eb5f0"></stop>
                 </linearGradient>
                 <path
                   fill="url(#nT5WH7nXAOiS46rXmee3Ob_msQ6HdxpqUmi_gr2)"

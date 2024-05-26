@@ -25,8 +25,14 @@ router.get("/google/login/failed", (req, res) => {
 router.get("/google", passport.authenticate("google", ["email", "profile"]))
 
 router.get("/logout", (req, res) => {
-  req.session.destroy()
-  res.redirect(process.env.CLIENT_URL)
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    
+    req.session = null;
+    req.cookies = null;
+
+    res.redirect('/');
+  });
 })
 
 router.post('/signup', emailSignup);

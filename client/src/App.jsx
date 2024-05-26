@@ -7,26 +7,24 @@ import SignUp from "./pages/Auth/SignUp.jsx"
 import { useEffect, useState } from "react"
 
 function App() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  const fetchUser = async () => {
-    try {
-      const url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/google/login/success`
-      const res = await axios.get(url, { withCredentials: true })
-      // store user in local storage
-      localStorage.setItem("user", JSON.stringify(res.data.user))
+  // const fetchUser = async () => {
+  //   try {
+  //     const url = `${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/google/login/success`
+  //     const res = await axios.get(url, { withCredentials: true })
+  //     localStorage.setItem("user", JSON.stringify(res.data.user))
       
-      // console.log(res.data.user)
-      setUser(res.data.user)
+  //     setUser(res.data.user)
 
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
+  // useEffect(() => {
+  //   fetchUser()
+  // }, [])
 
   return (
     <BrowserRouter>

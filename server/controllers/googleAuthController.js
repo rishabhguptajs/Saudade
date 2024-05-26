@@ -3,8 +3,9 @@ import User from "../models/userModel.js"
 export const googleLoginAuth = async (req, res) => {
 
   try {
+    console.log("user: ", req.user)
     if (req.user) {
-      const user = await User.findOne({ email: req.user.emails[0].value })
+      const user = await User.findOne({ email: req.user.email })
 
       if (!user) {
         const user = new User({
@@ -22,6 +23,8 @@ export const googleLoginAuth = async (req, res) => {
       }
 
       req.session.user = user
+
+      // console.log(req.session.user)
 
       res.status(200).json({
         success: true,
@@ -45,9 +48,4 @@ export const googleLoginAuth = async (req, res) => {
       message: error.message,
     })
   }
-}
-
-export const logout = (req, res) => {
-  req.session.destroy()
-  res.redirect(process.env.CLIENT_URL)
 }

@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     googleAccessToken: {
         type: String,
     },
+    subscriptionDetails: {
+        type: Array,
+        
+    }
 })
 
 const User = mongoose.model("User", userSchema);

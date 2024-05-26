@@ -2,11 +2,18 @@ import React from "react"
 import "../styles/HomePage.css"
 import Layout from "../../components/Layout/Layout"
 import Hero3DCard from "../../components/ui/Hero3DCard"
+import axios from "axios"
 
 const HomePage = () => {
 
+  const handleLogout = async () => {
+    localStorage.removeItem("user")
+    await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/api/auth/logout`)
+  }
+
   return (
     <Layout>
+      <button onClick={handleLogout}>Log out</button>
       <div className="homepage">
         <div className="tagline_container">
           <div className="main_tagline">
