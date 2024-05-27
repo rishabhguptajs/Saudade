@@ -37,9 +37,11 @@ const userSchema = new mongoose.Schema({
     googleAccessToken: {
         type: String,
     },
+    googleAccessToken: {
+        type: String,
+    },
     subscriptionDetails: {
         type: Array,
-        
     }
 })
 

@@ -10,7 +10,7 @@ passport.use(
       clientID: "896840456638-gc1kcuvon9jkla4refu31lhuebuirvlh.apps.googleusercontent.com",
       clientSecret: "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",
       callbackURL: "/api/auth/google/callback",
-      scope: ["email", "profile"],
+      scope: ["email", "profile", "https://www.googleapis.com/auth/youtube"],
     },
     async function (accessToken, refreshToken, profile, callback) {
       // check if user already exists in our db with the given profile ID
@@ -30,6 +30,7 @@ passport.use(
             uploadedVideoLinks: [],
             isVerified: false,
             googleAccessToken: accessToken,
+            googleRefreshToken: refreshToken,
           })
 
           await user.save();

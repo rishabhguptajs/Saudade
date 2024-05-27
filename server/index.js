@@ -9,6 +9,7 @@ import path from 'path'
 
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
+import { uploadVideo } from './controllers/youtubeController.js'
 import youtubeRoutes from './routes/youtubeRoutes.js'
 import './config/passport.js'
 
@@ -35,7 +36,7 @@ app.use(session({
     secret: process.env.COOKIE_KEY,
     resave: false,
     saveUninitialized: false,
-    store: new SQLiteStore({ db: 'sessions.db', dir: dbDir })
+    store: new SQLiteStore({ db: 'session.db', dir: dbDir })
 }))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -52,10 +53,13 @@ app.use('/api/youtube', youtubeRoutes)
 
 app.get('/', (req, res) => {
     res.send('Running Saudade!')
+    uploadVideo('6654b2243369cc9a30940dbd', './testVideo.mp4', 'testing-video', 'testing the youtube api', 'public');   
 })
+
 
 const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
+    console.log(process.env.GOOGLE_CLIENT_ID)
 })
