@@ -53,7 +53,6 @@ app.use('/api/youtube', youtubeRoutes)
 
 app.get('/', (req, res) => {
     res.send('Running Saudade!')
-    uploadVideo('6654b2243369cc9a30940dbd', './testVideo.mp4', 'testing-video', 'testing the youtube api', 'public');   
 })
 
 
@@ -61,5 +60,4 @@ const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
-    console.log(process.env.GOOGLE_CLIENT_ID)
 })

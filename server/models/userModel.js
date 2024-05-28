@@ -37,13 +37,21 @@ const userSchema = new mongoose.Schema({
     googleAccessToken: {
         type: String,
     },
-    googleAccessToken: {
+    googleRefreshToken: {
         type: String,
     },
     subscriptionDetails: {
         type: Array,
-    }
-})
+    },
+    editors: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Editor',
+    }],
+    pendingVideos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'PendingVideo',
+    }],
+});
 
 const User = mongoose.model("User", userSchema);
 
