@@ -45,3 +45,37 @@ export const addEditor = async (req, res) => {
         })
     }
 }
+
+export const removeEditor = async (req, res) => {
+    try {
+        const { editorId } = req.body;
+        const user = req.user;
+        const id = user.id;
+
+        if (!editorId) {
+            res.status(400).json({
+                message: "Editor ID is required!",
+                success: false
+            })
+        }
+
+        const updatedOwner = await User.findByIdAndUpdate(
+            { id },
+            { $pull: { editors: editorId } },
+            { new: true }
+        );
+
+        res.status(200).json({
+            message: "Editor removed successfully!",
+            success: true,
+            data: updatedOwner
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            message: "Error while removing editor from environment!",
+            success: false,
+            error: error.message
+        })
+    }
+}

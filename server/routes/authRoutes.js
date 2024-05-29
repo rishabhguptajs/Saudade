@@ -30,6 +30,7 @@ router.get("/logout", (req, res) => {
     
     req.session = null;
     req.cookies = null;
+    req.user = null;
 
     res.redirect('/');
   });

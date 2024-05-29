@@ -9,10 +9,13 @@ const editorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  password: {
+    type: String,
+    required: true
+  },
+  ownerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
   },
 });
 

@@ -1,7 +1,6 @@
 import User from "../models/userModel.js"
 
 export const googleLoginAuth = async (req, res) => {
-
   try {
     console.log("user: ", req.user)
     if (req.user) {
@@ -22,9 +21,7 @@ export const googleLoginAuth = async (req, res) => {
         user.save()
       }
 
-      req.session.user = user
-
-      // console.log(req.session.user)
+      req.user = user
 
       res.status(200).json({
         success: true,
