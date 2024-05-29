@@ -9,16 +9,23 @@ const pendingVideoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  privacy: {
+    type: String,
+    enum: ["public", "private", "unlisted"],
+    default: "public",
+    required: true,
+  },
+  tags: [String],
   videoCloudURL: {
     type: String,
     required: true,
   },
-  uploadedBy: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Editor',
     required: true,
   },
-  approved: {
+  isApproved: {
     type: Boolean,
     default: false,
   },

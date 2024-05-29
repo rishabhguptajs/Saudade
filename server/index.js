@@ -19,7 +19,6 @@ const SQLiteStore = connectSqlite3(session)
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const dbDir = path.resolve('./var/db');
-const dbPath = path.join(dbDir, 'sessions.db');
 
 if (isDevelopment) {
   if (!fs.existsSync(dbDir)) {

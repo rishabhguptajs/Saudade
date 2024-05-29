@@ -28,6 +28,10 @@ const videoSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    isApproved: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const Video = mongoose.model("Video", videoSchema);

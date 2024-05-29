@@ -13,7 +13,6 @@ passport.use(
       scope: ["email", "profile", "https://www.googleapis.com/auth/youtube"],
     },
     async function (accessToken, refreshToken, profile, callback) {
-      // check if user already exists in our db with the given profile ID
       try {
         let user = await User.findOne({ email: profile.emails[0].value });
 
