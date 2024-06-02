@@ -4,14 +4,8 @@ import fs from 'fs';
 import Video from '../models/videoModel.js';
 import PendingVideo from '../models/pendingVideoModel.js'
 import * as iso8601Duration from 'iso8601-duration';
-import { v2 as cloudinary } from 'cloudinary'
 import nodemailer from 'nodemailer';
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-  api_key: process.env.CLOUDINARY_API_KEY
-})
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -39,14 +33,10 @@ export const uploadToPending = async(req, res) => {
     const videoPath = req.file.path;
 
     const owner = await User.findById({ ownerId });
-    if(!owner){
-      res.status(404).json({
-        success: false,
-        message: "Owner not found!"
-      })
-    }
 
-    const result = await cloudinary.v2.uploader.upload(videoPath, { resource_type: "video" });
+    const result = await cloudinary.v2.uploader.upload(videoPath, {
+      resource_type: 'video',
+    });
 
     const newPendingVideo = new PendingVideo({
       title,
@@ -184,3 +174,27 @@ export const uploadVideo = async (userId, videoPath, title, description, privacy
     });
   }
 };
+
+export const fetchPendingVideo = async (req, res) => {
+  try {
+    const pendingVideo = await PendingVideo.findOne({ _id: req.params.id });
+
+    if (!pendingVideo) {
+      return res.status(404).json({
+        success: false,
+        message: 'The pending video not found',
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: pendingVideo,
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Error while fetching pending video!",
+      success: false,
+      error: error.message
+    })
+  }
+}

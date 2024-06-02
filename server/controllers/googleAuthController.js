@@ -1,3 +1,4 @@
+import passport from "passport"
 import User from "../models/userModel.js"
 
 export const googleLoginAuth = async (req, res) => {
@@ -46,3 +47,20 @@ export const googleLoginAuth = async (req, res) => {
     })
   }
 }
+
+export const googleLogout = async(req, res) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    
+    req.session = null;
+    req.cookies = null;
+    req.user = null;
+
+    res.redirect('/');
+  });
+}
+
+export const callback = passport.authenticate("google", {
+  successRedirect: "http://localhost:5173",
+  failureRedirect: "/google/login/failed",
+})

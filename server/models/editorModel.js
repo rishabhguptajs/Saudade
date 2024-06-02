@@ -13,10 +13,10 @@ const editorSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  ownerId: {
-    type: mongoose.Schema.Types.ObjectId,
+  ownerIds: {
+    type: [mongoose.Schema.Types.ObjectId],
     ref: 'User',
-  },
+  }
 });
 
 const Editor = mongoose.model('Editor', editorSchema);

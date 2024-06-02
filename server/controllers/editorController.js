@@ -12,7 +12,7 @@ export const registerEditor = async(req, res) => {
             })
         }
 
-        const hashedPassword = hashPassword(password);
+        const hashedPassword = await hashPassword(password);
 
         const newEditor = new Editor({
             name,
@@ -25,8 +25,10 @@ export const registerEditor = async(req, res) => {
         res.status(200).json({
             message: "Editor registered successfully!",
             success: true,
+            data: newEditor
         })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             message: "Error while registering editor!",
             success: false,
@@ -57,6 +59,11 @@ export const loginEditor = async(req, res) => {
             }
 
             const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '30d' });
+
+            req.editor = {
+                id: editor._id,
+                token
+            };
 
             res.status(200).json({
                 message: "Editor logged in successfully!",

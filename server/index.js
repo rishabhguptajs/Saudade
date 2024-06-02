@@ -9,8 +9,8 @@ import path from 'path'
 
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
-import { uploadVideo } from './controllers/youtubeController.js'
 import youtubeRoutes from './routes/youtubeRoutes.js'
+import editorRoutes from './routes/editorRoutes.js'
 import './config/passport.js'
 
 const app = express()
@@ -47,13 +47,14 @@ const corsOptions = {
     allowedHeaders: 'Content-Type,Authorization'
 };
 app.use(cors(corsOptions));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/youtube', youtubeRoutes)
+app.use('/api/editor', editorRoutes);
 
 app.get('/', (req, res) => {
     res.send('Running Saudade!')
 })
-
 
 const PORT = process.env.PORT || 8080
 
